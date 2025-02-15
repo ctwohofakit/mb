@@ -20,7 +20,8 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     template_name="post/new.html"
     model=Post
-    success_url =reverse("List")
+    fields=["title","subtitle","body"] #referencing in models, sequrncing layout
+
 
 # Create your views here.
 

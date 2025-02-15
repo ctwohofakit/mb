@@ -4,17 +4,22 @@
 
 {%block content%}
 <h1>Post</h1>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum perspiciatis repudiandae, quas provident obcaecati ea, modi similique, nostrum maiores iure asperiores quia reiciendis sunt blanditiis eos minus hic totam ratione.</p>
+
 {%for post in post_list%}
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <h5 class="card-title">{{ post.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{post.subtitle}}</h6>
+      <p class="card-text">{{post.body|truncatechars:64}}</p> <!--| is piping filters 64 character -->
+
+    <!--| use name in urls get  -->
+      <a href="{% url 'detail' post.id %}" class="card-link">Continue reading...</a>
+
+
     </div>
 </div>
+<br>
+
 {% endfor %}
 
 {%endblock content%}
